@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import reducer, {initialState} from './Reducer';
+import {StateProvider} from './StateProvider';
 
 ReactDOM.render(
   <React.StrictMode>
+    <StateProvider initialState=  {initialState} reducer={reducer}>   {/*every component can get access to the data layer, reducer-how we manipulate the data*/}
     <App />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
